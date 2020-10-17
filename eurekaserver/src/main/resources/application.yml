@@ -1,0 +1,28 @@
+server:
+  port: 8082
+spring:
+  application:
+    # 应用名称
+    name: eurekaserver
+    profiles:
+      #默认是开发环境  可以通过java -jar spring.profiles.active =dev来启动指定环境
+      active: dev
+    cloud:
+      inetutils:
+        preferred-networks: 127.0.0.1
+      client:
+        ip-address: 127.0.0.1
+eureka:
+  server:
+    peer-node-read-timeout-ms: 3000
+    enable-self-preservation: false  #是否开启保护，就是是否删除挂掉的服务建议为false
+  instance:
+    prefer-ip-address: true  # 是否以ip地址注册到中心，如果设置为false的话就是hostname注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} # 注册限制的实例的id
+  client:
+    register-with-eureka: true #将服务中心本身注册到进去
+    fetch-registry: false
+    healthcheck:
+      enabled: true
+    serviceUrl:  #默认的注册中心地址
+      defaultZone:  http://127.0.0.1:8082/eureka/
