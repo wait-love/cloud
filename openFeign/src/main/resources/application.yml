@@ -1,0 +1,16 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: openFeign
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://127.0.0.1:8082/eureka/
+
+#openFeign是默认自带熔断器的，只是默认为关闭的状态
+feign:
+  hystrix:
+    enabled: true
