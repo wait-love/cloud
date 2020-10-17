@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      name: eurekaclient
+      label: master
+      discovery:
+        enabled: true
+        serviceId: config
+
+
+#配置服务中心的地址
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://127.0.0.1:8082/eureka/
