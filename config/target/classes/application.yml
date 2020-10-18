@@ -1,0 +1,35 @@
+server:
+  port: 8888
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    publisher-confirms: true
+  application:
+    name: config
+  profiles:
+    active: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wait-love/springcloudconfig-config-repo.git #配置git仓库地址
+          username: wait-love
+          password: abcd196135
+      label: master #配置仓库的分支
+
+#eureka 注册中心地址
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://127.0.0.1:8082/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,bus-refresh
+
