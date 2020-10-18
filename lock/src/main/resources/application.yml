@@ -1,0 +1,34 @@
+server:
+  port: 8084
+
+spring:
+  redis:
+    host: localhost
+    port: 6379 #redis中的端口号
+
+mysql:
+  datasource:
+    test1:
+      url: jdbc:mysql://localhost:3306/test01?useSSL=false&serverTimezone=UTC
+      username: root
+      password: 123456
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
+    test2:
+      url: jdbc:mysql://localhost:3306/test02?useSSL=false&serverTimezone=UTC
+      username: root
+      password: 123456
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
